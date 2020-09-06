@@ -1,0 +1,1 @@
+﻿<%@ Page Language="C#" AutoEventWireup="true" CodeFile="adminLogout.aspx.cs" Inherits="admin_adminLogout" %>

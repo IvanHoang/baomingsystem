@@ -1,0 +1,575 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<edmx:Edmx Version="3.0" xmlns:edmx="http://schemas.microsoft.com/ado/2009/11/edmx">
+  <!-- EF Runtime content -->
+  <edmx:Runtime>
+    <!-- SSDL content -->
+    <edmx:StorageModels>
+    <Schema Namespace="db_2012teacherModel.Store" Provider="System.Data.SqlClient" ProviderManifestToken="2020" Alias="Self" xmlns:store="http://schemas.microsoft.com/ado/2007/12/edm/EntityStoreSchemaGenerator" xmlns:customannotation="http://schemas.microsoft.com/ado/2013/11/edm/customannotation" xmlns="http://schemas.microsoft.com/ado/2009/11/edm/ssdl">
+        <EntityType Name="SystemSet">
+          <Key>
+            <PropertyRef Name="id" />
+          </Key>
+          <Property Name="id" Type="int" Nullable="false" />
+          <Property Name="NianFen" Type="int" Nullable="false" />
+          <Property Name="BaoMingTimeStart" Type="smalldatetime" Nullable="false" />
+          <Property Name="BaoMingTimeEnd" Type="smalldatetime" Nullable="false" />
+          <Property Name="ZKZPrintTimeStart" Type="smalldatetime" Nullable="false" />
+          <Property Name="ZKZPrintTimeEnd" Type="smalldatetime" Nullable="false" />
+          <Property Name="BaoMing2TimeStart" Type="smalldatetime" Nullable="false" />
+          <Property Name="BaoMing2TimeEnd" Type="smalldatetime" Nullable="false" />
+          <Property Name="NoLoginTimeStart" Type="smalldatetime" />
+          <Property Name="NoLoginTimeEnd" Type="smalldatetime" />
+        </EntityType>
+        <EntityType Name="t_parameter">
+          <Key>
+            <PropertyRef Name="id" />
+          </Key>
+          <Property Name="id" Type="int" StoreGeneratedPattern="Identity" Nullable="false" />
+          <Property Name="paraGroupCode" Type="varchar" MaxLength="20" Nullable="false" />
+          <Property Name="paraName" Type="nvarchar" MaxLength="20" Nullable="false" />
+          <Property Name="paraValue" Type="varchar" MaxLength="10" Nullable="false" />
+          <Property Name="paraDefault" Type="bit" Nullable="false" />
+          <Property Name="paraSort" Type="int" Nullable="false" />
+          <Property Name="paraRemark" Type="nvarchar" MaxLength="50" />
+        </EntityType>
+        <EntityType Name="t_Role">
+          <Key>
+            <PropertyRef Name="Role" />
+          </Key>
+          <Property Name="Role" Type="nvarchar" MaxLength="20" Nullable="false" />
+          <Property Name="GangweiCodes" Type="varchar" MaxLength="80" />
+        </EntityType>
+        <EntityType Name="tb_admin">
+          <Key>
+            <PropertyRef Name="UserName" />
+          </Key>
+          <Property Name="UserName" Type="nvarchar" MaxLength="20" Nullable="false" />
+          <Property Name="PassWord" Type="nvarchar" MaxLength="50" Nullable="false" />
+          <Property Name="Role" Type="nvarchar" MaxLength="20" />
+          <Property Name="IDCardPIC" Type="nvarchar" MaxLength="200" />
+        </EntityType>
+        <EntityType Name="tb_gangwei">
+          <Key>
+            <PropertyRef Name="GangweiCode" />
+          </Key>
+          <Property Name="GangweiCode" Type="int" Nullable="false" />
+          <Property Name="GangWeiName" Type="nvarchar" MaxLength="50" Nullable="false" />
+          <Property Name="bUsed" Type="bit" Nullable="false" />
+        </EntityType>
+        <EntityType Name="tb_userinfo">
+          <Key>
+            <PropertyRef Name="id" />
+          </Key>
+          <Property Name="id" Type="int" StoreGeneratedPattern="Identity" Nullable="false" />
+          <Property Name="UserName" Type="nvarchar" MaxLength="20" Nullable="false" />
+          <Property Name="XingMing" Type="nvarchar" MaxLength="50" Nullable="false" />
+          <Property Name="Birthday" Type="nvarchar" MaxLength="6" />
+          <Property Name="ShengYuanDi" Type="nvarchar" MaxLength="50" />
+          <Property Name="BiYeSchool" Type="nvarchar" MaxLength="50" />
+          <Property Name="AuditCode" Type="char" MaxLength="1" Nullable="false" />
+          <Property Name="AuditFeedback" Type="nvarchar" MaxLength="50" />
+          <Property Name="XueKeCode" Type="int" />
+          <Property Name="XueLiCode" Type="varchar" MaxLength="2" />
+          <Property Name="BiYeTime" Type="datetime2" Precision="7" />
+          <Property Name="QuanRiZhi" Type="nvarchar" MaxLength="50" />
+          <Property Name="ZhuanYe" Type="nvarchar" MaxLength="50" />
+          <Property Name="ShiFanLei" Type="nvarchar" MaxLength="50" />
+          <Property Name="ZiGeZheng" Type="nvarchar" MaxLength="50" />
+          <Property Name="DuSheng" Type="nvarchar" MaxLength="50" />
+          <Property Name="Mobile" Type="nvarchar" MaxLength="50" />
+          <Property Name="ZiGeZhengCode" Type="nvarchar" MaxLength="50" />
+          <Property Name="Address" Type="nvarchar" MaxLength="50" />
+          <Property Name="Tel" Type="nvarchar" MaxLength="50" />
+          <Property Name="XueQianWork" Type="nvarchar" MaxLength="50" />
+          <Property Name="BiYeZhengShuCode" Type="nvarchar" MaxLength="50" />
+          <Property Name="SexCode" Type="varchar" MaxLength="1" />
+          <Property Name="PTHLevel" Type="nvarchar" MaxLength="10" />
+          <Property Name="PTHZSNo" Type="nvarchar" MaxLength="20" />
+          <Property Name="IDPhoto" Type="nvarchar" MaxLength="200" />
+          <Property Name="MinZuCode" Type="varchar" MaxLength="2" />
+          <Property Name="PoliticalOrientationCode" Type="varchar" MaxLength="2" />
+          <Property Name="ZhiYeCode" Type="varchar" MaxLength="2" />
+          <Property Name="CreateDT" Type="datetime2" Precision="7" Nullable="false" />
+          <Property Name="picResidenceBooklet" Type="nvarchar" MaxLength="200" />
+          <Property Name="picDiploma" Type="nvarchar" MaxLength="200" />
+          <Property Name="picArchiveCertificate" Type="nvarchar" MaxLength="200" />
+          <Property Name="picZiGeZheng" Type="nvarchar" MaxLength="200" />
+          <Property Name="picPTH" Type="nvarchar" MaxLength="200" />
+          <Property Name="picNewGraduates" Type="nvarchar" MaxLength="200" />
+          <Property Name="picKindergartenCommitment" Type="nvarchar" MaxLength="200" />
+        </EntityType>
+        <EntityType Name="tb_xueke">
+          <Key>
+            <PropertyRef Name="XueKeCode" />
+          </Key>
+          <Property Name="XueKeCode" Type="int" Nullable="false" />
+          <Property Name="XueKeName" Type="nvarchar" MaxLength="50" Nullable="false" />
+          <Property Name="GangWeiCode" Type="int" Nullable="false" />
+          <Property Name="kskmCode" Type="varchar" MaxLength="5" Nullable="false" />
+        </EntityType>
+        <EntityType Name="tb_zunkaozheng">
+          <Key>
+            <PropertyRef Name="zkzCode" />
+          </Key>
+          <Property Name="zkzCode" Type="nvarchar" MaxLength="50" Nullable="false" />
+          <Property Name="UserName" Type="nvarchar" MaxLength="20" Nullable="false" />
+          <Property Name="zuoweiCode" Type="nvarchar" MaxLength="10" />
+          <Property Name="kaoDian" Type="nvarchar" MaxLength="50" />
+          <Property Name="publicSubject" Type="nvarchar" MaxLength="50" />
+          <Property Name="privateSubject" Type="nvarchar" MaxLength="50" />
+          <Property Name="kaoShiTime" Type="nvarchar" MaxLength="50" />
+          <Property Name="kaoShiDate" Type="nvarchar" MaxLength="50" />
+          <Property Name="shiChangCode" Type="nvarchar" MaxLength="50" />
+          <Property Name="kaoDian1" Type="nvarchar" MaxLength="50" />
+          <Property Name="shiChangCode1" Type="nvarchar" MaxLength="50" />
+          <Property Name="zuoweiCode1" Type="nvarchar" MaxLength="10" />
+          <Property Name="kaoShiDate1" Type="nvarchar" MaxLength="50" />
+          <Property Name="kaoShiTime1" Type="nvarchar" MaxLength="50" />
+        </EntityType>
+        <Association Name="FK_tb_admin_t_Role">
+          <End Role="t_Role" Type="Self.t_Role" Multiplicity="0..1" />
+          <End Role="tb_admin" Type="Self.tb_admin" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="t_Role">
+              <PropertyRef Name="Role" />
+            </Principal>
+            <Dependent Role="tb_admin">
+              <PropertyRef Name="Role" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <Association Name="FK_tb_userinfo_tb_admin">
+          <End Role="tb_admin" Type="Self.tb_admin" Multiplicity="1" />
+          <End Role="tb_userinfo" Type="Self.tb_userinfo" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="tb_admin">
+              <PropertyRef Name="UserName" />
+            </Principal>
+            <Dependent Role="tb_userinfo">
+              <PropertyRef Name="UserName" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <Association Name="FK_tb_userinfo_tb_xueke">
+          <End Role="tb_xueke" Type="Self.tb_xueke" Multiplicity="0..1">
+            <OnDelete Action="Cascade" />
+          </End>
+          <End Role="tb_userinfo" Type="Self.tb_userinfo" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="tb_xueke">
+              <PropertyRef Name="XueKeCode" />
+            </Principal>
+            <Dependent Role="tb_userinfo">
+              <PropertyRef Name="XueKeCode" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <Association Name="FK_tb_xueke_tb_gangwei">
+          <End Role="tb_gangwei" Type="Self.tb_gangwei" Multiplicity="1" />
+          <End Role="tb_xueke" Type="Self.tb_xueke" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="tb_gangwei">
+              <PropertyRef Name="GangweiCode" />
+            </Principal>
+            <Dependent Role="tb_xueke">
+              <PropertyRef Name="GangWeiCode" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <!--生成过程中发现错误:
+警告 6035: 关系“FK_tb_zunkaozheng_tb_userinfo”在关系主端上有一些列不属于表的键的一部分。已排除了此关系。
+        <Association Name="FK_tb_zunkaozheng_tb_userinfo" />-->
+        <EntityContainer Name="db_2012teacherModelStoreContainer">
+          <EntitySet Name="SystemSet" EntityType="Self.SystemSet" Schema="dbo" store:Type="Tables" />
+          <EntitySet Name="t_parameter" EntityType="Self.t_parameter" Schema="dbo" store:Type="Tables" />
+          <EntitySet Name="t_Role" EntityType="Self.t_Role" Schema="dbo" store:Type="Tables" />
+          <EntitySet Name="tb_admin" EntityType="Self.tb_admin" Schema="dbo" store:Type="Tables" />
+          <EntitySet Name="tb_gangwei" EntityType="Self.tb_gangwei" Schema="dbo" store:Type="Tables" />
+          <EntitySet Name="tb_userinfo" EntityType="Self.tb_userinfo" Schema="dbo" store:Type="Tables" />
+          <EntitySet Name="tb_xueke" EntityType="Self.tb_xueke" Schema="dbo" store:Type="Tables" />
+          <EntitySet Name="tb_zunkaozheng" EntityType="Self.tb_zunkaozheng" Schema="dbo" store:Type="Tables" />
+          <AssociationSet Name="FK_tb_admin_t_Role" Association="Self.FK_tb_admin_t_Role">
+            <End Role="t_Role" EntitySet="t_Role" />
+            <End Role="tb_admin" EntitySet="tb_admin" />
+          </AssociationSet>
+          <AssociationSet Name="FK_tb_userinfo_tb_admin" Association="Self.FK_tb_userinfo_tb_admin">
+            <End Role="tb_admin" EntitySet="tb_admin" />
+            <End Role="tb_userinfo" EntitySet="tb_userinfo" />
+          </AssociationSet>
+          <AssociationSet Name="FK_tb_userinfo_tb_xueke" Association="Self.FK_tb_userinfo_tb_xueke">
+            <End Role="tb_xueke" EntitySet="tb_xueke" />
+            <End Role="tb_userinfo" EntitySet="tb_userinfo" />
+          </AssociationSet>
+          <AssociationSet Name="FK_tb_xueke_tb_gangwei" Association="Self.FK_tb_xueke_tb_gangwei">
+            <End Role="tb_gangwei" EntitySet="tb_gangwei" />
+            <End Role="tb_xueke" EntitySet="tb_xueke" />
+          </AssociationSet>
+        </EntityContainer>
+      </Schema></edmx:StorageModels>
+    <!-- CSDL content -->
+    <edmx:ConceptualModels>
+      <Schema Namespace="db_2012teacherModel" Alias="Self" annotation:UseStrongSpatialTypes="false" xmlns:annotation="http://schemas.microsoft.com/ado/2009/02/edm/annotation" xmlns:customannotation="http://schemas.microsoft.com/ado/2013/11/edm/customannotation" xmlns="http://schemas.microsoft.com/ado/2009/11/edm">
+        <EntityType Name="tb_gangwei">
+          <Key>
+            <PropertyRef Name="GangweiCode" />
+          </Key>
+          <Property Name="GangweiCode" Type="Int32" Nullable="false" />
+          <Property Name="GangWeiName" Type="String" MaxLength="50" FixedLength="false" Unicode="true" Nullable="false" />
+          <Property Name="bUsed" Type="Boolean" Nullable="false" />
+          <NavigationProperty Name="tb_xueke" Relationship="Self.FK_tb_xueke_tb_gangwei" FromRole="tb_gangwei" ToRole="tb_xueke" />
+        </EntityType>
+        <EntityType Name="tb_xueke">
+          <Key>
+            <PropertyRef Name="XueKeCode" />
+          </Key>
+          <Property Name="XueKeCode" Type="Int32" Nullable="false" />
+          <Property Name="XueKeName" Type="String" MaxLength="50" FixedLength="false" Unicode="true" Nullable="false" />
+          <Property Name="GangWeiCode" Type="Int32" Nullable="false" />
+          <NavigationProperty Name="tb_gangwei" Relationship="Self.FK_tb_xueke_tb_gangwei" FromRole="tb_xueke" ToRole="tb_gangwei" />
+          <Property Name="kskmCode" Type="String" Nullable="false" MaxLength="5" FixedLength="false" Unicode="false" />
+          <NavigationProperty Name="tb_userinfo" Relationship="db_2012teacherModel.FK_tb_userinfo_tb_xueke" FromRole="tb_xueke" ToRole="tb_userinfo" />
+        </EntityType>
+        <Association Name="FK_tb_xueke_tb_gangwei">
+          <End Role="tb_gangwei" Type="Self.tb_gangwei" Multiplicity="1" />
+          <End Role="tb_xueke" Type="Self.tb_xueke" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="tb_gangwei">
+              <PropertyRef Name="GangweiCode" />
+            </Principal>
+            <Dependent Role="tb_xueke">
+              <PropertyRef Name="GangWeiCode" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <EntityContainer Name="teacherBaoMing_Entities" annotation:LazyLoadingEnabled="true">
+          <EntitySet Name="tb_gangwei" EntityType="Self.tb_gangwei" />
+          <EntitySet Name="tb_xueke" EntityType="Self.tb_xueke" />
+          <AssociationSet Name="FK_tb_xueke_tb_gangwei" Association="Self.FK_tb_xueke_tb_gangwei">
+            <End Role="tb_gangwei" EntitySet="tb_gangwei" />
+            <End Role="tb_xueke" EntitySet="tb_xueke" />
+          </AssociationSet>
+          <EntitySet Name="SystemSets" EntityType="db_2012teacherModel.SystemSet" />
+          <EntitySet Name="t_parameter" EntityType="db_2012teacherModel.t_parameter" />
+          <EntitySet Name="tb_zunkaozheng" EntityType="db_2012teacherModel.tb_zunkaozheng" />
+          <EntitySet Name="tb_userinfo" EntityType="db_2012teacherModel.tb_userinfo" />
+          <AssociationSet Name="FK_tb_userinfo_tb_xueke" Association="db_2012teacherModel.FK_tb_userinfo_tb_xueke">
+            <End Role="tb_xueke" EntitySet="tb_xueke" />
+            <End Role="tb_userinfo" EntitySet="tb_userinfo" />
+          </AssociationSet>
+          <EntitySet Name="tb_admin" EntityType="db_2012teacherModel.tb_admin" />
+          <AssociationSet Name="FK_tb_userinfo_tb_admin" Association="db_2012teacherModel.FK_tb_userinfo_tb_admin">
+            <End Role="tb_admin" EntitySet="tb_admin" />
+            <End Role="tb_userinfo" EntitySet="tb_userinfo" />
+          </AssociationSet>
+          <EntitySet Name="t_Role" EntityType="db_2012teacherModel.t_Role" />
+          <AssociationSet Name="FK_tb_admin_t_Role" Association="db_2012teacherModel.FK_tb_admin_t_Role">
+            <End Role="t_Role" EntitySet="t_Role" />
+            <End Role="tb_admin" EntitySet="tb_admin" />
+          </AssociationSet>
+          </EntityContainer>
+        <EntityType Name="SystemSet">
+          <Key>
+            <PropertyRef Name="id" />
+          </Key>
+          <Property Name="id" Type="Int32" Nullable="false" />
+          <Property Name="NianFen" Type="Int32" Nullable="false" />
+          <Property Name="BaoMingTimeStart" Type="DateTime" Nullable="false" Precision="0" />
+          <Property Name="BaoMingTimeEnd" Type="DateTime" Nullable="false" Precision="0" />
+          <Property Name="ZKZPrintTimeStart" Type="DateTime" Nullable="false" Precision="0" />
+          <Property Name="BaoMing2TimeStart" Type="DateTime" Nullable="false" Precision="0" />
+          <Property Name="BaoMing2TimeEnd" Type="DateTime" Nullable="false" Precision="0" />
+          <Property Name="ZKZPrintTimeEnd" Type="DateTime" Nullable="false" Precision="0" />
+          <Property Name="NoLoginTimeStart" Type="DateTime" Precision="0" />
+          <Property Name="NoLoginTimeEnd" Type="DateTime" Precision="0" />
+        </EntityType>
+        <EntityType Name="t_parameter">
+          <Key>
+            <PropertyRef Name="id" />
+          </Key>
+          <Property Name="id" Type="Int32" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
+          <Property Name="paraGroupCode" Type="String" Nullable="false" MaxLength="20" FixedLength="false" Unicode="false" />
+          <Property Name="paraName" Type="String" Nullable="false" MaxLength="20" FixedLength="false" Unicode="true" />
+          <Property Name="paraValue" Type="String" Nullable="false" MaxLength="10" FixedLength="false" Unicode="false" />
+          <Property Name="paraSort" Type="Int32" Nullable="false" />
+          <Property Name="paraRemark" Type="String" MaxLength="50" FixedLength="false" Unicode="true" />
+          <Property Name="paraDefault" Type="Boolean" Nullable="false" />
+        </EntityType>
+        <EntityType Name="tb_zunkaozheng">
+          <Key>
+            <PropertyRef Name="zkzCode" />
+          </Key>
+          <Property Name="zkzCode" Type="String" Nullable="false" MaxLength="50" FixedLength="false" Unicode="true" />
+          <Property Name="UserName" Type="String" Nullable="false" MaxLength="20" FixedLength="false" Unicode="true" />
+          <Property Name="zuoweiCode" Type="String" MaxLength="10" FixedLength="false" Unicode="true" />
+          <Property Name="kaoDian" Type="String" MaxLength="50" FixedLength="false" Unicode="true" />
+          <Property Name="publicSubject" Type="String" MaxLength="50" FixedLength="false" Unicode="true" />
+          <Property Name="privateSubject" Type="String" MaxLength="50" FixedLength="false" Unicode="true" />
+          <Property Name="kaoShiTime" Type="String" MaxLength="50" FixedLength="false" Unicode="true" />
+          <Property Name="kaoShiDate" Type="String" MaxLength="50" FixedLength="false" Unicode="true" />
+          <Property Name="shiChangCode" Type="String" MaxLength="50" FixedLength="false" Unicode="true" />
+          <Property Name="kaoDian1" Type="String" MaxLength="50" FixedLength="false" Unicode="true" />
+          <Property Name="shiChangCode1" Type="String" MaxLength="50" FixedLength="false" Unicode="true" />
+          <Property Name="zuoweiCode1" Type="String" MaxLength="10" FixedLength="false" Unicode="true" />
+          <Property Name="kaoShiDate1" Type="String" MaxLength="50" FixedLength="false" Unicode="true" />
+          <Property Name="kaoShiTime1" Type="String" MaxLength="50" FixedLength="false" Unicode="true" />
+        </EntityType>
+        <EntityType Name="tb_userinfo">
+          <Key>
+            <PropertyRef Name="id" />
+          </Key>
+          <Property Name="id" Type="Int32" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
+          <Property Name="UserName" Type="String" Nullable="false" MaxLength="20" FixedLength="false" Unicode="true" />
+          <Property Name="XingMing" Type="String" Nullable="false" MaxLength="50" FixedLength="false" Unicode="true" />
+          <Property Name="Birthday" Type="String" MaxLength="6" FixedLength="false" Unicode="true" />
+          <Property Name="ShengYuanDi" Type="String" MaxLength="50" FixedLength="false" Unicode="true" />
+          <Property Name="BiYeSchool" Type="String" MaxLength="50" FixedLength="false" Unicode="true" />
+          <Property Name="AuditCode" Type="String" Nullable="false" MaxLength="1" FixedLength="true" Unicode="false" />
+          <Property Name="AuditFeedback" Type="String" MaxLength="50" FixedLength="false" Unicode="true" />
+          <Property Name="XueKeCode" Type="Int32" />
+          <Property Name="XueLiCode" Type="String" MaxLength="2" FixedLength="false" Unicode="false" />
+          <Property Name="BiYeTime" Type="DateTime" Precision="7" />
+          <Property Name="QuanRiZhi" Type="String" MaxLength="50" FixedLength="false" Unicode="true" />
+          <Property Name="ZhuanYe" Type="String" MaxLength="50" FixedLength="false" Unicode="true" />
+          <Property Name="ShiFanLei" Type="String" MaxLength="50" FixedLength="false" Unicode="true" />
+          <Property Name="ZiGeZheng" Type="String" MaxLength="50" FixedLength="false" Unicode="true" />
+          <Property Name="DuSheng" Type="String" MaxLength="50" FixedLength="false" Unicode="true" />
+          <Property Name="Mobile" Type="String" MaxLength="50" FixedLength="false" Unicode="true" />
+          <Property Name="ZiGeZhengCode" Type="String" MaxLength="50" FixedLength="false" Unicode="true" />
+          <Property Name="Address" Type="String" MaxLength="50" FixedLength="false" Unicode="true" />
+          <Property Name="Tel" Type="String" MaxLength="50" FixedLength="false" Unicode="true" />
+          <Property Name="XueQianWork" Type="String" MaxLength="50" FixedLength="false" Unicode="true" />
+          <Property Name="BiYeZhengShuCode" Type="String" MaxLength="50" FixedLength="false" Unicode="true" />
+          <Property Name="SexCode" Type="String" MaxLength="1" FixedLength="false" Unicode="false" />
+          <Property Name="PTHLevel" Type="String" MaxLength="10" FixedLength="false" Unicode="true" />
+          <Property Name="PTHZSNo" Type="String" MaxLength="20" FixedLength="false" Unicode="true" />
+          <Property Name="IDPhoto" Type="String" MaxLength="200" FixedLength="false" Unicode="true" />
+          <Property Name="MinZuCode" Type="String" MaxLength="2" FixedLength="false" Unicode="false" />
+          <Property Name="PoliticalOrientationCode" Type="String" MaxLength="2" FixedLength="false" Unicode="false" />
+          <Property Name="ZhiYeCode" Type="String" MaxLength="2" FixedLength="false" Unicode="false" />
+          <Property Name="CreateDT" Type="DateTime" Nullable="false" Precision="7" />
+          <Property Name="picResidenceBooklet" Type="String" MaxLength="200" FixedLength="false" Unicode="true" />
+          <Property Name="picDiploma" Type="String" MaxLength="200" FixedLength="false" Unicode="true" />
+          <Property Name="picArchiveCertificate" Type="String" MaxLength="200" FixedLength="false" Unicode="true" />
+          <Property Name="picZiGeZheng" Type="String" MaxLength="200" FixedLength="false" Unicode="true" />
+          <Property Name="picPTH" Type="String" MaxLength="200" FixedLength="false" Unicode="true" />
+          <Property Name="picNewGraduates" Type="String" MaxLength="200" FixedLength="false" Unicode="true" />
+          <Property Name="picKindergartenCommitment" Type="String" MaxLength="200" FixedLength="false" Unicode="true" />
+          <NavigationProperty Name="tb_xueke" Relationship="db_2012teacherModel.FK_tb_userinfo_tb_xueke" FromRole="tb_userinfo" ToRole="tb_xueke" />
+          <NavigationProperty Name="tb_admin" Relationship="db_2012teacherModel.FK_tb_userinfo_tb_admin" FromRole="tb_userinfo" ToRole="tb_admin" />
+        </EntityType>
+        <Association Name="FK_tb_userinfo_tb_xueke">
+          <End Type="db_2012teacherModel.tb_xueke" Role="tb_xueke" Multiplicity="0..1">
+            <OnDelete Action="Cascade" />
+          </End>
+          <End Type="db_2012teacherModel.tb_userinfo" Role="tb_userinfo" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="tb_xueke">
+              <PropertyRef Name="XueKeCode" />
+            </Principal>
+            <Dependent Role="tb_userinfo">
+              <PropertyRef Name="XueKeCode" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <EntityType Name="tb_admin">
+          <Key>
+            <PropertyRef Name="UserName" />
+          </Key>
+          <Property Name="UserName" Type="String" Nullable="false" MaxLength="20" FixedLength="false" Unicode="true" />
+          <Property Name="PassWord" Type="String" Nullable="false" MaxLength="50" FixedLength="false" Unicode="true" />
+          <Property Name="Role" Type="String" MaxLength="20" FixedLength="false" Unicode="true" />
+          <Property Name="IDCardPIC" Type="String" MaxLength="200" FixedLength="false" Unicode="true" />
+          <NavigationProperty Name="tb_userinfo" Relationship="db_2012teacherModel.FK_tb_userinfo_tb_admin" FromRole="tb_admin" ToRole="tb_userinfo" />
+          <NavigationProperty Name="t_Role" Relationship="db_2012teacherModel.FK_tb_admin_t_Role" FromRole="tb_admin" ToRole="t_Role" />
+        </EntityType>
+        <Association Name="FK_tb_userinfo_tb_admin">
+          <End Type="db_2012teacherModel.tb_admin" Role="tb_admin" Multiplicity="1" />
+          <End Type="db_2012teacherModel.tb_userinfo" Role="tb_userinfo" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="tb_admin">
+              <PropertyRef Name="UserName" />
+            </Principal>
+            <Dependent Role="tb_userinfo">
+              <PropertyRef Name="UserName" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <EntityType Name="t_Role">
+          <Key>
+            <PropertyRef Name="Role" />
+          </Key>
+          <Property Name="Role" Type="String" Nullable="false" MaxLength="20" FixedLength="false" Unicode="true" />
+          <Property Name="GangweiCodes" Type="String" MaxLength="80" FixedLength="false" Unicode="false" />
+          <NavigationProperty Name="tb_admin" Relationship="db_2012teacherModel.FK_tb_admin_t_Role" FromRole="t_Role" ToRole="tb_admin" />
+        </EntityType>
+        <Association Name="FK_tb_admin_t_Role">
+          <End Type="db_2012teacherModel.t_Role" Role="t_Role" Multiplicity="0..1" />
+          <End Type="db_2012teacherModel.tb_admin" Role="tb_admin" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="t_Role">
+              <PropertyRef Name="Role" />
+            </Principal>
+            <Dependent Role="tb_admin">
+              <PropertyRef Name="Role" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        </Schema>
+    </edmx:ConceptualModels>
+    <!-- C-S mapping content -->
+    <edmx:Mappings>
+      <Mapping Space="C-S" xmlns="http://schemas.microsoft.com/ado/2009/11/mapping/cs">
+        <EntityContainerMapping StorageEntityContainer="db_2012teacherModelStoreContainer" CdmEntityContainer="teacherBaoMing_Entities">
+          <EntitySetMapping Name="tb_gangwei">
+            <EntityTypeMapping TypeName="db_2012teacherModel.tb_gangwei">
+              <MappingFragment StoreEntitySet="tb_gangwei">
+                <ScalarProperty Name="GangweiCode" ColumnName="GangweiCode" />
+                <ScalarProperty Name="GangWeiName" ColumnName="GangWeiName" />
+                <ScalarProperty Name="bUsed" ColumnName="bUsed" />
+              </MappingFragment>
+            </EntityTypeMapping>
+          </EntitySetMapping>
+          <EntitySetMapping Name="tb_xueke">
+            <EntityTypeMapping TypeName="db_2012teacherModel.tb_xueke">
+              <MappingFragment StoreEntitySet="tb_xueke">
+                <ScalarProperty Name="kskmCode" ColumnName="kskmCode" />
+                <ScalarProperty Name="XueKeCode" ColumnName="XueKeCode" />
+                <ScalarProperty Name="XueKeName" ColumnName="XueKeName" />
+                <ScalarProperty Name="GangWeiCode" ColumnName="GangWeiCode" />
+              </MappingFragment>
+            </EntityTypeMapping>
+          </EntitySetMapping>
+          <EntitySetMapping Name="SystemSets">
+            <EntityTypeMapping TypeName="db_2012teacherModel.SystemSet">
+              <MappingFragment StoreEntitySet="SystemSet">
+                <ScalarProperty Name="NoLoginTimeEnd" ColumnName="NoLoginTimeEnd" />
+                <ScalarProperty Name="NoLoginTimeStart" ColumnName="NoLoginTimeStart" />
+                <ScalarProperty Name="ZKZPrintTimeEnd" ColumnName="ZKZPrintTimeEnd" />
+                <ScalarProperty Name="BaoMing2TimeEnd" ColumnName="BaoMing2TimeEnd" />
+                <ScalarProperty Name="BaoMing2TimeStart" ColumnName="BaoMing2TimeStart" />
+                <ScalarProperty Name="ZKZPrintTimeStart" ColumnName="ZKZPrintTimeStart" />
+                <ScalarProperty Name="BaoMingTimeEnd" ColumnName="BaoMingTimeEnd" />
+                <ScalarProperty Name="BaoMingTimeStart" ColumnName="BaoMingTimeStart" />
+                <ScalarProperty Name="NianFen" ColumnName="NianFen" />
+                <ScalarProperty Name="id" ColumnName="id" />
+              </MappingFragment>
+            </EntityTypeMapping>
+          </EntitySetMapping>
+          <EntitySetMapping Name="t_parameter">
+            <EntityTypeMapping TypeName="db_2012teacherModel.t_parameter">
+              <MappingFragment StoreEntitySet="t_parameter">
+                <ScalarProperty Name="paraDefault" ColumnName="paraDefault" />
+                <ScalarProperty Name="paraRemark" ColumnName="paraRemark" />
+                <ScalarProperty Name="paraSort" ColumnName="paraSort" />
+                <ScalarProperty Name="paraValue" ColumnName="paraValue" />
+                <ScalarProperty Name="paraName" ColumnName="paraName" />
+                <ScalarProperty Name="paraGroupCode" ColumnName="paraGroupCode" />
+                <ScalarProperty Name="id" ColumnName="id" />
+              </MappingFragment>
+            </EntityTypeMapping>
+          </EntitySetMapping>
+          <EntitySetMapping Name="tb_zunkaozheng">
+            <EntityTypeMapping TypeName="db_2012teacherModel.tb_zunkaozheng">
+              <MappingFragment StoreEntitySet="tb_zunkaozheng">
+                <ScalarProperty Name="kaoShiTime1" ColumnName="kaoShiTime1" />
+                <ScalarProperty Name="kaoShiDate1" ColumnName="kaoShiDate1" />
+                <ScalarProperty Name="zuoweiCode1" ColumnName="zuoweiCode1" />
+                <ScalarProperty Name="shiChangCode1" ColumnName="shiChangCode1" />
+                <ScalarProperty Name="kaoDian1" ColumnName="kaoDian1" />
+                <ScalarProperty Name="shiChangCode" ColumnName="shiChangCode" />
+                <ScalarProperty Name="kaoShiDate" ColumnName="kaoShiDate" />
+                <ScalarProperty Name="kaoShiTime" ColumnName="kaoShiTime" />
+                <ScalarProperty Name="privateSubject" ColumnName="privateSubject" />
+                <ScalarProperty Name="publicSubject" ColumnName="publicSubject" />
+                <ScalarProperty Name="kaoDian" ColumnName="kaoDian" />
+                <ScalarProperty Name="zuoweiCode" ColumnName="zuoweiCode" />
+                <ScalarProperty Name="UserName" ColumnName="UserName" />
+                <ScalarProperty Name="zkzCode" ColumnName="zkzCode" />
+              </MappingFragment>
+            </EntityTypeMapping>
+          </EntitySetMapping>
+          <EntitySetMapping Name="tb_userinfo">
+            <EntityTypeMapping TypeName="db_2012teacherModel.tb_userinfo">
+              <MappingFragment StoreEntitySet="tb_userinfo">
+                <ScalarProperty Name="picKindergartenCommitment" ColumnName="picKindergartenCommitment" />
+                <ScalarProperty Name="picNewGraduates" ColumnName="picNewGraduates" />
+                <ScalarProperty Name="picPTH" ColumnName="picPTH" />
+                <ScalarProperty Name="picZiGeZheng" ColumnName="picZiGeZheng" />
+                <ScalarProperty Name="picArchiveCertificate" ColumnName="picArchiveCertificate" />
+                <ScalarProperty Name="picDiploma" ColumnName="picDiploma" />
+                <ScalarProperty Name="picResidenceBooklet" ColumnName="picResidenceBooklet" />
+                <ScalarProperty Name="CreateDT" ColumnName="CreateDT" />
+                <ScalarProperty Name="ZhiYeCode" ColumnName="ZhiYeCode" />
+                <ScalarProperty Name="PoliticalOrientationCode" ColumnName="PoliticalOrientationCode" />
+                <ScalarProperty Name="MinZuCode" ColumnName="MinZuCode" />
+                <ScalarProperty Name="IDPhoto" ColumnName="IDPhoto" />
+                <ScalarProperty Name="PTHZSNo" ColumnName="PTHZSNo" />
+                <ScalarProperty Name="PTHLevel" ColumnName="PTHLevel" />
+                <ScalarProperty Name="SexCode" ColumnName="SexCode" />
+                <ScalarProperty Name="BiYeZhengShuCode" ColumnName="BiYeZhengShuCode" />
+                <ScalarProperty Name="XueQianWork" ColumnName="XueQianWork" />
+                <ScalarProperty Name="Tel" ColumnName="Tel" />
+                <ScalarProperty Name="Address" ColumnName="Address" />
+                <ScalarProperty Name="ZiGeZhengCode" ColumnName="ZiGeZhengCode" />
+                <ScalarProperty Name="Mobile" ColumnName="Mobile" />
+                <ScalarProperty Name="DuSheng" ColumnName="DuSheng" />
+                <ScalarProperty Name="ZiGeZheng" ColumnName="ZiGeZheng" />
+                <ScalarProperty Name="ShiFanLei" ColumnName="ShiFanLei" />
+                <ScalarProperty Name="ZhuanYe" ColumnName="ZhuanYe" />
+                <ScalarProperty Name="QuanRiZhi" ColumnName="QuanRiZhi" />
+                <ScalarProperty Name="BiYeTime" ColumnName="BiYeTime" />
+                <ScalarProperty Name="XueLiCode" ColumnName="XueLiCode" />
+                <ScalarProperty Name="XueKeCode" ColumnName="XueKeCode" />
+                <ScalarProperty Name="AuditFeedback" ColumnName="AuditFeedback" />
+                <ScalarProperty Name="AuditCode" ColumnName="AuditCode" />
+                <ScalarProperty Name="BiYeSchool" ColumnName="BiYeSchool" />
+                <ScalarProperty Name="ShengYuanDi" ColumnName="ShengYuanDi" />
+                <ScalarProperty Name="Birthday" ColumnName="Birthday" />
+                <ScalarProperty Name="XingMing" ColumnName="XingMing" />
+                <ScalarProperty Name="UserName" ColumnName="UserName" />
+                <ScalarProperty Name="id" ColumnName="id" />
+              </MappingFragment>
+            </EntityTypeMapping>
+          </EntitySetMapping>
+          <EntitySetMapping Name="tb_admin">
+            <EntityTypeMapping TypeName="db_2012teacherModel.tb_admin">
+              <MappingFragment StoreEntitySet="tb_admin">
+                <ScalarProperty Name="IDCardPIC" ColumnName="IDCardPIC" />
+                <ScalarProperty Name="Role" ColumnName="Role" />
+                <ScalarProperty Name="PassWord" ColumnName="PassWord" />
+                <ScalarProperty Name="UserName" ColumnName="UserName" />
+              </MappingFragment>
+            </EntityTypeMapping>
+          </EntitySetMapping>
+          <EntitySetMapping Name="t_Role">
+            <EntityTypeMapping TypeName="db_2012teacherModel.t_Role">
+              <MappingFragment StoreEntitySet="t_Role">
+                <ScalarProperty Name="GangweiCodes" ColumnName="GangweiCodes" />
+                <ScalarProperty Name="Role" ColumnName="Role" />
+              </MappingFragment>
+            </EntityTypeMapping>
+          </EntitySetMapping>
+        </EntityContainerMapping>
+      </Mapping>
+    </edmx:Mappings>
+  </edmx:Runtime>
+  <!-- EF Designer content (DO NOT EDIT MANUALLY BELOW HERE) -->
+  <Designer xmlns="http://schemas.microsoft.com/ado/2009/11/edmx">
+    <Connection>
+      <DesignerInfoPropertySet>
+        <DesignerProperty Name="MetadataArtifactProcessing" Value="EmbedInOutputAssembly" />
+      </DesignerInfoPropertySet>
+    </Connection>
+    <Options>
+      <DesignerInfoPropertySet>
+        <DesignerProperty Name="ValidateOnBuild" Value="true" />
+        <DesignerProperty Name="EnablePluralization" Value="true" />
+        <DesignerProperty Name="IncludeForeignKeysInModel" Value="true" />
+        <DesignerProperty Name="UseLegacyProvider" Value="false" />
+        <DesignerProperty Name="CodeGenerationStrategy" Value="无" />
+      </DesignerInfoPropertySet>
+    </Options>
+    <!-- Diagram content (shape and connector positions) -->
+    <Diagrams></Diagrams>
+  </Designer>
+</edmx:Edmx>

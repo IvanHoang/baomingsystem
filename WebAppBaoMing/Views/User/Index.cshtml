@@ -1,0 +1,71 @@
+﻿@{
+    ViewData["Title"] = "用户登录";
+}
+
+<head runat="server">
+    <title></title>
+    <script type="text/javascript" src="http://cdn.bootcss.com/jquery/1.12.3/jquery.min.js"></script>
+    <style type="text/css">
+        td {
+            border-color: #000000;
+            break-word: break-all;
+            padding: 1px 2px;
+        }
+
+        .bold {
+            font-weight: bold;
+        }
+
+        .notice {
+            font-size: 1.1em;
+            color: red;
+            margin: 2em 2em 2em 1em;
+            line-height: 180%;
+            width: 50em;
+        }
+
+            .notice .head {
+                font-weight: bold;
+                text-align: center;
+                line-height: 180%;
+            }
+
+            .notice p {
+                text-indent: 2em;
+            }
+
+            .notice .foot {
+                text-align: right;
+                margin-right: 3em;
+            }
+    </style>
+</head>
+<body>
+    <form id="form1" runat="server">
+        <table width="800px" style="padding: 0px; margin: 0px" class="NoPrn">
+            <tr>
+                <td>
+                    <a id="btnFirst" runat="server" asp-controller="User" asp-action="BaomingTable">填写报名表&nbsp;|&nbsp;</a>
+                    <a asp-controller="User" asp-action="TongJi" target="_blank">报名统计</a>&nbsp;|&nbsp;
+                    <a asp-controller="User" asp-action="EditPSW">修改密码</a>&nbsp;|&nbsp;
+                    <a asp-controller="Home" asp-action="Index">退出</a>
+                </td>
+            </tr>
+        </table>
+        <asp:Panel ID="pnlMessage" runat="server" Visible="false">
+            <div class="notice">
+                <div class="head">温馨提醒 | 招聘条件</div>
+                <p>1．拥护中国共产党，遵纪守法，热爱教育事业，志愿从事教育工作。</p>
+                <p>2．具有与履行招考岗位相适应的职业道德素质、业务知识水平、教育教学能力和心理素质，身心健康。</p>
+                <p>3．专科毕业生年龄30周岁以下（1990年1月1日后出生），本科及以上毕业生年龄33周岁以下（1987年1月1日后出生）；符合报考学前教育工作满5学年岗位的，年龄可以放宽至35周岁以下（1985年1月1日后出生）。 </p>
+                <p>4．具有某户籍（不含某市）或某生源（指参加高考时户籍在某<《不含某市》>）的全日制普通高校毕业生（含2020年全日制普通高校应届毕业生），中小学语文、中小学体育、学前教育（全日制）岗位放宽至null户籍，高中政治、高中历史、高中地理、中学信息技术、心理健康、职高电子商务、舞蹈、特殊教育等岗位户籍不限，户籍确认时间截止：2020年3日7日。</p>
+                <p>5．未被机关、事业单位录用的人员。报考连续从事学前教育满5学年岗位的，必须在我县连续从事学前教育满5年的我县现任幼儿园长或教师，五学年时间计算到2020年6月30日，人员身份确认时间截止2020年3月7日。</p>
+                <p>6. 全日制普通高校专科及以上毕业生（含2020年应届毕业生），报考学前教育（全日制）、特殊教育岗位要求全日制专科及以上学历；报考中小学岗位要求全日制本科及以上学历（报考小学岗位对象，若具有学科相应专业且有对应学科教师资格证的可放宽至全日制大专学历）；报考连续从事学前教育满5学年岗位的可以为国民教育序列的高校毕业生。（具体见附件1）</p>
+                <p>7. 报考对象应具有相应类别的教师资格证（职高专业课、舞蹈除外），中学岗位都需高中教师资格证（初中社会、初中科学岗位需初中教师资格证及以上）；高学段教师资格证书适用于低学段岗位，学前教育岗位须持有幼儿园教师资格证；未取得教师资格证的可暂凭教育部考试中心的《中小学和幼儿园教师资格考试合格证明》报考。报考中小学语文岗位必须取得二级甲等及以上普通话等级证书，其余岗位持二级乙等及以上普通话等级证书。</p>
+                <p>8. 本科及以上毕业生可选择与学历证书专业相应学科或教师资格证（应届毕业生可提供是否师范类、所学专业、取得何种教师资格证（2020年7月20日前）对应的学科进行报考，物理、化学、生物、科学专业毕业生可报考初中或小学科学岗位，政治、历史、地理、社会专业毕业生可报考初中社会岗位，报考学前教育（全日制）、特殊教育、心理健康、舞蹈、职高专业课岗位要求对应专业。初等教育、小学教育专业毕业生若毕业证书没有注明方向且教师资格证没有明确学科的或具有小学全科教师资格证的，可自选相应学段一个学科进行报考。每位毕业生只能报考一个学科岗位，不得兼报。报考连续从事学前教育满5学年岗位的，专业可以不限。</p>
+            </div>
+        </asp:Panel>
+    </form>
+</body>
+
+

@@ -1,0 +1,99 @@
+﻿@{
+    ViewData["Title"] = "首页";
+    ViewData["year"] = DateTime.Now.Year.ToString();
+}
+
+
+<head runat="server">
+    <style type="text/css">
+        table {
+            border-left: 1px solid #999;
+            border-top: 1px solid #999;
+        }
+
+        th, td {
+            border-right: 1px solid #999;
+            border-bottom: 1px solid #999;
+        }
+    </style>
+</head>
+<body style="font-size: 11pt; text-align: center;">
+    <form id="form1" runat="server" style="text-align:center">
+        <table width="100%">
+            <tr>
+                <td align="center">
+                    <table bgcolor="#99CCFF"
+                           style="border-width: thin; border-color: #000000; width: 640px;">
+                        <tr>
+                            <td style="height: 80px; font-size: 32px; text-align:center">
+                                @ViewData["year"]年某市教师考录网上报名系统
+                            </td>
+                        </tr>
+                        <tr>
+                            <td>
+                                <table style="width: 100%; color: #000000;">
+                                    <tr>
+                                        <td align="right">
+                                            身份证号：
+                                        </td>
+                                        <td align="left" class="style2">
+
+                                            <input />
+                                        </td>
+                                    </tr>
+                                    <tr>
+                                        <td align="right">
+                                            密码：
+                                        </td>
+                                        <td align="left" class="style2">
+                                            <input />
+                                        </td>
+                                    </tr>
+                                    <!-- <tr>
+                                        <td align="right">
+                                            验证码：</td>
+                                        <td align="left" class="style2" valign="middle">
+                                            <asp:TextBox ID="txtValidateNum" runat="server" Width="120px"></asp:TextBox>&nbsp;
+                                            <asp:Image ID="Image1" runat="server" Height="22px" Width="58px" style="vertical-align:bottom;" ImageUrl="~/ValidateNum.aspx"  onclick='javascript:this.src="/ValidateNum.aspx?"+Math.random();'/>
+                                        </td>
+                                    </tr> -->
+                                    <tr>
+                                        <td class="style1" style="border-width: 1px; border-color: #000000;">
+                                        </td>
+                                        <td align="left" class="style2">
+
+                                            <input asp-controller="User" asp-action="Index" type="submit" value="登录" />&nbsp;&nbsp;
+                                            <input asp-controller="Home" asp-action="Register" type="submit" value="注册" />
+                                        </td>
+                                    </tr>
+                                    <tr>
+                                        <td colspan="2" align="left">
+                                            <strong> 报考流程：</strong><br />
+                                            1、<strong>网上注册报名。</strong>时间：报名开始时间：yyyy年MM月dd日 24:00。报名结束时间：yyyy年MM月dd日 24:00。<br />
+                                            ①使用个人身份证注册账号。②登录系统，并填写报考信息。<br />
+                                            2、<strong>资格初审。</strong>时间 @ViewData["year"]年3月06日0:00--3月07日24:00<br />
+                                            3、<strong>查询初审结果并再次报名。</strong>时间：2020年3月08日0:00—6月21日24:00<br />
+                                            4、<strong>打印报名表。</strong>网上审核通过后自行打印。<br />
+                                            5、<strong>现场确认。</strong>时间：@ViewData["year"]年？月22日--？月24日（上午8:30--11:30，下午14:00--17:00），逾期不予确认。地点：某社会事业局教育科（某市世纪大道4518号）<br />
+                                            6、<strong>网上打印笔试准考证。</strong>时间：@ViewData["year"]年？月29日0:00:00至 @ViewData["year"]年？月30日24:00<br />
+                                        </td>
+                                    </tr>
+                                    <tr>
+                                        <td colspan="2" align="center" style="height: 60px;">
+                                            <p style="border-top-style: solid; border-width: 1px; padding-top: 10px;">
+                                                联系方式：某市教育局人事科　null 林老师<br />
+                                                Copyright© 2020 某市教育局人事科 All rights reserved<br />
+                                               null<br />
+                                            </p>
+                                        </td>
+                                    </tr>
+                                </table>
+                            </td>
+                        </tr>
+                    </table>
+                </td>
+            </tr>
+        </table>
+    </form>
+</body>
+
